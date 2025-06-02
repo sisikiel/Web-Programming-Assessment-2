@@ -1,0 +1,259 @@
+/* Import serif font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap');
+
+/* General Reset & Background  */
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Crimson Text', serif; /* Set main font */
+  background: radial-gradient(ellipse at center, #1a0033 0%, #000010 100%);
+  color: #e0c9ff; /* light violet text */
+  overflow: hidden; /* prevent scrollbars */
+  height: 100vh;
+  width: 100vw;
+}
+
+/*Welcome Splash Page*/
+.welcome {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('Page\ 7\ Contents/background.gif'); /* animated background */
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  animation: fadeIn 2s ease-in; /* fade in on load */
+  z-index: 2; /* on top of app */
+}
+
+.welcome h1 {
+  font-size: 2.5em;
+  opacity: 0;
+  animation: titleFade 3s ease-in-out forwards; /* fade and slide in */
+  color: #c084fc;
+  text-align: center;
+}
+
+.welcome button {
+  margin-top: 30px;
+  padding: 12px 28px;
+  font-size: 1em;
+  border: 2px solid #3f0a5f;
+  background-color: #2c003e; /* dark purple */
+  color: #e0c9ff; /* soft violet */
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.welcome button:hover {
+  background-color: #8247a7; /* lighter purple on hover */
+  color: #ffffff;
+}
+
+/*Animations Used */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes titleFade {
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/*Main App Layout*/
+.app {
+  display: none; /* hidden initially, shown after welcome */
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  height: 100vh;
+  text-align: center;
+  padding-top: 0;
+  animation: fadeIn 1.5s ease forwards; /* fade in on show */
+  position: relative;
+
+  background-image: url('Page\ 7\ Contents/stars.gif'); /* starry background */
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+
+/*Navbar*/
+header {
+  position: sticky;
+  top: 0;
+  z-index: 10; /* stay above content */
+  background: rgba(25, 0, 39, 0.2); /* translucent dark background */
+  display: flex;
+  justify-content: center;
+  padding: 1rem 0;
+}
+
+.navbar {
+  display: flex;
+  justify-content: center;
+}
+
+.nav-pill {
+  padding: 20px 30px;
+  border: 1px solid #8247a7;
+  border-radius: 999px; /* pill shape */
+  background: rgba(0, 0, 0, 0.3);
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+  margin: 0;
+  padding: 0;
+  font-weight: bold;
+}
+
+nav ul a {
+  text-decoration: none;
+  padding: 10px 15px;
+  color: #c084fc;
+  border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+nav ul a:hover {
+  background-color: #e0c9ff;
+  color: #1a0033;
+  border-radius: 999px;
+}
+
+nav ul a.active {
+  background: none !important;
+  color: #c084fc !important;
+}
+
+/* Main Title */
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  padding-top: 60px;
+  text-align: center;
+}
+
+main h2 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  color: #e0c9ff;
+}
+
+/* Space reserved for the breathing circle */
+.circle-container {
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+/* Breathing circle styles and smooth scaling transitions */
+.circle {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: #a76bff;
+  box-shadow: 0 0 15px #a76bff;
+  transition: all 1s ease-in-out;
+}
+
+/* Instruction text below circle */
+.instruction {
+  color: #e0c9ff;
+  margin: 15px 0 30px;
+  font-size: 1.1em;
+}
+
+/* Layout for input controls */
+.controls {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+/* Center buttons below controls */
+.control-buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+/* Group label and input horizontally aligned */
+.label-group {
+  display: flex;
+  align-items: center;
+}
+
+label {
+  margin-right: 5px;
+  font-size: 0.9em;
+  color: #e0c9ff;
+}
+
+/* Common styling for buttons and inputs */
+button, input {
+  font-size: 1em;
+  border-radius: 8px;
+}
+
+/* Button styles */
+button {
+  padding: 10px 18px;
+  background-color: transparent;
+  color: #c084fc;
+  border: 2px solid #c084fc;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background-color: #c084fc;
+  color: #1a0033;
+}
+
+/* Input fields styling */
+input {
+  width: 60px;
+  padding: 5px;
+  background-color: #1c1333;
+  border: 1px solid #c084fc;
+  color: #c084fc;
+  text-align: center;
+}
+
+/* Mobile Optimization */
+@media (max-width: 600px) {
+  .circle {
+    width: 80px;
+    height: 80px;
+  }
+
+  main h2 {
+    font-size: 1.5em;
+  }
+
+  .status {
+    font-size: 1.2em;
+  }
+}
+
+/* Fade out animation (used for welcome screen hiding) */
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        
+        <title>Anatomy</title>
+        <!-- Link to external CSS for page styling -->
+        <link rel="stylesheet" href="Page02.css" />
+    </head>
+
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="nav-pill">
+        <!-- Navigation menu linking to other pages -->
+        <ul>
+          <li><a href="Page 01 - Home Page.html">Home</a></li>
+          <li><a href="Page 02 - Anatomy Page.html">Anatomy</a></li>
+          <li><a href="Page 03 - Functions Page.html">Functions</a></li>
+          <li><a href="Page 04 - Health Page.html">Health Tips</a></li>
+          <li><a href="Page 05 - Resources Page.html">Resources</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Intro section with animated background GIF and main heading -->
+  <section class="intro">
+    <img src="Page 2 Contents/background_gif.gif" alt="Animated Background" class="background-gif" />
+    <div class="center-content">
+      <h1>Human Lung Anatomy</h1>
+      <p>Explore the intriguing anatomy of our human lungs!</p>
+    </div>
+  </section>
+
+  <!-- Main content section with text on left and video on right -->
+  <section class="page">
+    <div class="split-container">
+      <div class="info-side">
+        <!-- Informative text about lungs anatomy -->
+        <h1>Anatomy of Our Lungs</h1>
+        <p>The lungs are a pair of spongy, air-filled organs located in the chest cavity, protected by the rib cage. Each lung is divided into sections called lobes — the right lung has three lobes (superior, middle, and inferior), while the left lung has two (superior and inferior) to make space for the heart. The lungs are connected to the trachea via the bronchi, which branch into smaller bronchioles and end in tiny air sacs called alveoli, where gas exchange occurs. Surrounding the lungs is a thin membrane called the pleura, which helps reduce friction during breathing. The lungs work closely with the diaphragm and intercostal muscles to draw air in and out, allowing oxygen to enter the bloodstream and carbon dioxide to be expelled.</p>
+      </div>
+      <div class="video-side">
+        <!-- Autoplaying muted looping video showing breathing -->
+        <video autoplay muted loop>
+          <source src="Page 2 Contents/breathing.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section with embedded 3D lung model and dynamic info section -->
+  <section class="page">
+    <div class="anatomy-container">
+      <div class="sketchfab-wrapper">
+        <div class="sketchfab-embed-wrapper">
+          <!-- Sketchfab iframe embedding an interactive lung 3D model -->
+          <iframe id="api-frame" title="Lung animation" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" src="https://sketchfab.com/models/acbb5f0e16a14179ae4f63c5b6b83ad7/embed?api=1&autostart=1&preload=1"></iframe>
+        </div>
+      </div>
+
+      <!-- Container where info about lung parts will be dynamically inserted by JavaScript -->
+      <div class="info-section" id="info-section">
+      </div>
+    </div>
+  </section>
+
+  <!-- Section split into text content and image with links -->
+  <section class="page">
+    <div class="split-containers">
+      <!-- Left Side: explanatory text on lung importance -->
+      <div class="text-section">
+        <h1>Why is learning about our lungs important?</h1>
+        <p>Understanding the anatomy of our lungs is essential because it helps us appreciate how our bodies take in oxygen and remove carbon dioxide — a vital process for survival. By learning how the lungs function and how air moves through the respiratory system, we can better recognize the signs of respiratory illnesses like asthma, bronchitis, or pneumonia. This knowledge also helps us make informed decisions about our health, such as avoiding smoking or environmental pollutants that can damage lung tissue. Whether you're a student, healthcare worker, or simply curious about your body, knowing how your lungs work empowers you to take better care of them.</p>
+      </div>
+
+      <!-- Right Side: GIF image plus links to related pages -->
+      <div class="image-side">
+        <img src="Page 2 Contents/Important Info.gif" alt="Infomation GIF" class="gif-image" />
+
+        <div class="link-boxes">
+          <!-- Navigation buttons to related lung function and health pages -->
+          <a href="Page 03 - Functions Page.html" class="link-button">Learn more about how our lungs function.</a>
+          <a href="Page 04 - Health Page.html" class="link-button">How do we take care of our lungs?</a>
+          <a href="Page 06 - Conditions Page.html" class="link-button">What are the lung conditions we have to watch out for?</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer section with resource links and site info -->
+  <section class="page">
+    <footer class="site-footer">
+      <div class="footer-content">
+
+        <div class="footer-section">
+          <h4>Resources</h4>
+          <ul>
+            <!-- External authoritative links on lung health -->
+            <li><a href="https://www.who.int" target="_blank">WHO - Lung Health</a></li>
+            <li><a href="https://www.lung.org" target="_blank">American Lung Association</a></li>
+            <li><a href="https://www.cdc.gov" target="_blank">CDC - Respiratory Health</a></li>
+            <li><a href="https://www.nhlbi.nih.gov" target="_blank">NHLBI - Lung Research</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <ul>
+            <!-- Internal page links -->
+            <li><a href="Page 02 - Anatomy.html">Anatomy</a></li>
+            <li><a href="Page 03 - Lung Functions.html">Functions</a></li>
+            <li><a href="privacy.html">Resources</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2025 Lung Health Hub. All rights reserved.</p>
+      </div>
+
+    </footer>
+  </section>
+
+  <script>
+    // When DOM content is loaded, observe each '.page' section to add 'visible' class when scrolled into view
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.page').forEach(section => {
+        const observer = new IntersectionObserver(entries => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');  // Add visible class when section is at least 10% visible
+            }
+          });
+        }, { threshold: 0.1 });
+        observer.observe(section);
+      });
+    });
+
+    // Data array containing info about different lung parts to be shown dynamically
+    const infoContent = [
+      {
+        title: "Diaphragm",
+        text: "It is the main muscle used for breathing in (inspiration). When it contracts, the thoracic cavity expands, lowering pressure and allowing the lungs to fill with air. More than just a divider between cavities, the diaphragm plays a vital role in breathing. This article explores its anatomy, function, and the structures that pass through it..",
+        image: "Page 2 Contents/anatomy%20parts/Diaphragm.png"
+      },
+      {
+        title: "Trachea",
+        text: "The trachea, or windpipe, is a tube that connects your larynx (voice box) to your bronchi, which carry air into your lungs. It’s an essential part of your respiratory system. The trachea is supported by rings of cartilage that keep it open and flexible. Its lining contains mucus-producing cells and tiny hairs called cilia. Together, they trap and clear out dust, allergens, and other particles, helping protect your lungs from irritation or infection.",
+        image: "Page 2 Contents/anatomy%20parts/Trachea.png"
+      },
+      {
+        title: "Oblique Fissure",
+        text: "The oblique fissure is a fissure of the lungs. There are two oblique fissures, one on the left side of the body that separates the superior lobe of the left lung from the inferior lobe, and one on the right that separates the superior and middle lobes of the right lung from the inferior lobe. ",
+        image: "Page 2 Contents/anatomy%20parts/Oblique Fissure.png"
+      },
+      {
+        title: "Inferior Lobe",
+        text: "The inferior lobe is the smaller of the two lobes in the left lung. It lies below and behind the oblique fissure and makes up most of the lung’s base. It also forms a large part of the costal surface and much of the posterior border, contributing significantly to the back and bottom of the lung.",
+        image: "Page 2 Contents/anatomy%20parts/Inferior Lobe.png"
+      },
+      {
+        title: "Lungs",
+        text: "Lungs are the spongy organs located in the chest cavity of air-breathing vertebrates. They are part of the respiratory system and play a crucial role in adding oxygen to the blood and removing carbon dioxide. The lungs are responsible for gas exchange, allowing fresh air to come into contact with oxygen-poor blood in the pulmonary capillaries.", 
+        image: "Page 2 Contents/anatomy%20parts/Lungs.png"
+      },
+      {
+        title: "Middle Lobe",
+        text: "The right middle lobe (RML) or simply the middle lobe is one of three lobes in the right lung. It is separated from the right upper lobe above by the horizontal fissure and the right lower lobe below by the right oblique fissure and is subdivided into two bronchopulmonary segments.",
+        image: "Page 2 Contents/anatomy%20parts/Middle Lobe.png"
+      }
+    ];
+
+    // Function to display info content by index inside the #info-section container
+    function showInfo(index) {
+      const section = document.getElementById("info-section");
+      const info = infoContent[index];
+
+      // Insert the title, text, and image dynamically.
+      // Also adds a navigation of numbered circles that are clickable to show different info
+      section.innerHTML = `
+        <h1>${info.title}</h1>
+        <p>${info.text}</p>
+        ${info.image ? `<img src="${info.image}" alt="${info.title}" style="max-width:90%; height:auto; margin-bottom:1em; border-radius: 8px;" />` : ''}
+        <div class="circle-nav">
+          ${infoContent.map((_, i) => `
+            <div class="circle ${index === i ? 'active' : ''}" onclick="showInfo(${i})">${i + 1}</div>
+          `).join('')}
+        </div>
+      `;
+    }
+
+    // On window load, display the first info content by default
+    window.onload = () => {
+      showInfo(0);
+    };
+  </script>
+</body>
+</html>

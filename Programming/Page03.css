@@ -1,0 +1,307 @@
+/* Import Crimson Text font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap');
+
+/* Reset base styles and set font, enable smooth scrolling with snap */
+html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      overflow-y: auto;
+      scroll-behavior: smooth;
+      scroll-snap-type: y mandatory;
+      scrollbar-width: none; /* Hide scrollbar in Firefox */
+      font-family: 'Crimson Text', serif;
+}
+
+/* Hide scrollbar for WebKit browsers */
+body::-webkit-scrollbar {
+      display: none;
+}
+
+/* Sticky header at top with centered content */
+header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: transparent;
+      display: flex;
+      justify-content: center;
+      padding: 1rem 0;
+}
+
+/* Navigation bar layout */
+.navbar {
+      display: flex;
+      justify-content: center;
+      margin-top: 2%;
+}
+
+/* Rounded pill-shaped nav background */
+.nav-pill {
+      padding: 20px 30px;
+      border: 1px solid #850e35;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.2);
+}
+
+/* Horizontal nav list with no bullets */
+nav ul {
+      list-style-type: none;
+      display: flex;
+      gap: 15px;
+      margin: 0;
+      padding: 0;
+      font-weight: bold;
+}
+
+/* Nav links styling with hover effects */
+nav ul a {
+      text-decoration: none;
+      padding: 10px 15px;
+      color: rgb(133, 14, 53);
+      border-radius: 5px;
+      transition: background-color 0.3s, color 0.3s;
+}
+
+nav ul a:hover {
+      background-color: rgb(255, 196, 196);
+      color: black;
+      border-radius: 999px;
+}
+
+/* Active nav link override */
+nav ul a.active {
+      background: none !important;
+      color: rgb(133, 14, 53) !important;
+}
+
+/* Fullscreen background GIF behind content */
+.background-gif {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+/* Main heading centered and styled */
+.heading{
+      text-align: center;
+      font-size: 280%;
+      color: #850e35;
+}
+
+/* Intro text with side margins */
+.intro{
+      text-align: center justify; /* Might be better as just center or justify */
+      color: #850e35;
+      margin-right: 20%;
+      margin-left: 20%;
+      font-size: 120%;
+}
+
+/* Container for boxes, flex wrap and center */
+.container {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding-top: 5%;
+}
+
+/* Individual box styling with hover expand */
+.box {
+      width: 280px;
+      background-color: white;
+      border-radius: 12px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      position: relative;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.box:hover {
+      width: 350px;
+}
+
+/* Image container adjusts height on hover */
+.image-container {
+      position: relative;
+      overflow: hidden;
+      height: 200px;
+      transition: height 0.3s ease;
+}
+
+.box:hover .image-container {
+      height: 120px;
+}
+
+/* Image zoom effect on hover */
+.image-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+}
+
+.box:hover .image-container img {
+      transform: scale(0.9);
+}
+
+/* Titles positioned over images */
+.title, .title2, .title3 {
+      position: absolute;
+      bottom: 8px;
+      left: 12px;
+      font-size: 1.2em;
+      font-weight: bold;
+}
+
+.title {
+      color: black;
+}
+
+.title2 {
+      color: rgb(255, 196, 196);
+}
+
+.title3 {
+      color: black;
+}
+
+/* Title color changes on hover */
+.box:hover .title3,
+.box:hover .title {
+      color: #850e35;
+}
+
+/* Hidden info text, reveals on hover */
+.info {
+      padding: 15px;
+      opacity: 0;
+      max-height: 0;
+      overflow: hidden;
+      transition: opacity 0.3s ease, max-height 0.3s ease;
+}
+
+.box:hover .info {
+      opacity: 1;
+      max-height: 200px;
+}
+
+/* Another container with same style as above */
+.container2 {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding-top: 5%;
+}
+
+/* Split layout for info text and video */
+.split-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 1200px;
+  gap: 2rem;
+  margin-left: 5%;
+}
+
+/* Left side info styling */
+.info-side {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1rem;
+  padding-left: 10%;
+}
+
+.info-side h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #850e35;
+}
+
+.info-side p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+/* Right side video container */
+.video-side {
+  flex: 1;
+  display: flex;
+  justify-content: right;
+  align-items: right;
+  padding: 1rem;
+}
+
+/* Video size and styling */
+.video-side video {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  border-radius: 30px;
+}
+
+/* Footer background and basic styles */
+.site-footer {
+    background-color: rgba(35, 15, 15, 0.9);
+    backdrop-filter: blur(10px);
+    color: #ddd;
+    font-size: 0.9rem;
+    padding: 40px 20px 20px;
+}
+
+/* Footer content layout */
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: auto;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #333;
+}
+
+/* Footer section headings */
+.footer-section h4 {
+    color: #fff;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+}
+
+/* Footer lists */
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Footer list items */
+.footer-section ul li {
+    margin-bottom: 0.5rem;
+}
+
+/* Footer links */
+.footer-section ul li a {
+    color: #bbb;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.footer-section ul li a:hover {
+    color: #fff;
+}
+
+/* Footer bottom text */
+.footer-bottom {
+    color: #888;
+    margin-top: 20px;
+    text-align: center;
+}

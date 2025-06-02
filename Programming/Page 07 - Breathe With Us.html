@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Breathe With Us</title>
+  <link rel="stylesheet" href="Page07.css">
+</head>
+<body>
+
+  <!-- Welcome Splash Page -->
+  <section class="welcome" id="welcomeScreen" role="region" aria-label="Welcome screen">
+    <h1>Welcome to <br>"Breathe With Us"</h1>
+    <button id="beginButton">Begin</button>
+  </section>
+
+  <!-- Main Breathing App -->
+  <div class="app" id="app">
+    <header>
+      <nav class="navbar" aria-label="Main Navigation">
+        <ul class="nav-pill">
+          <li><a href="Page 01 - Home Page.html">Home</a></li>
+          <li><a href="Page 02 - Anatomy Page.html">Anatomy</a></li>
+          <li><a href="Page 03 - Functions Page.html">Functions</a></li>
+          <li><a href="Page 04 - Health Page.html">Health Tips</a></li>
+          <li><a href="Page 05 - Resources Page.html">Resources</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+        <h2>Breathe With Us</h2>
+        
+        <!-- Container for the breathing circle animation -->
+        <div class="circle-container">
+            <div class="circle"></div>
+        </div>
+
+        <!-- Status text to display current breathing phase -->
+        <p id="status" class="instruction">Click Start to Begin</p>
+
+        <!-- Input controls to set inhale, hold, and exhale durations -->
+        <section class="controls">
+            <div class="label-group">
+              <label for="inhaleTime">Inhale:
+                <input type="number" id="inhaleTime" value="4" min="1">
+              </label>
+            </div>
+            <div class="label-group">
+              <label for="holdTime">Hold:
+                <input type="number" id="holdTime" value="4" min="1">
+              </label>
+            </div>
+            <div class="label-group">
+              <label for="exhaleTime">Exhale:
+                <input type="number" id="exhaleTime" value="4" min="1">
+              </label>
+            </div>
+        </section>
+
+        <!-- Start and Stop buttons for the breathing session -->
+        <section class="control-buttons">
+            <button id="startButton">Start</button>
+            <button id="stopButton">Stop</button>
+        </section>
+    </main>
+
+    <!-- Ambient background audio, loops continuously -->
+    <footer aria-hidden="true">
+      <audio id="ambient" loop>
+        <source src="Page 7 Contents/background sound.mp3" type="audio/mp3" />
+      </audio>
+    </footer>
+
+  </div>
+
+  <!-- JS Script -->
+  <script>
+    // Wait until DOM content is fully loaded
+    document.addEventListener("DOMContentLoaded", () => {
+      // Variables to hold timing durations (in milliseconds)
+      let inhale, hold, exhale;
+      let interval;          // interval ID for repeating breathe cycle
+      let isRunning = false; // flag to prevent multiple simultaneous sessions
+
+      // DOM elements used in the app
+      const circle = document.querySelector('.circle');    // circle to animate
+      const status = document.getElementById('status');    // status text display
+      const welcome = document.getElementById('welcomeScreen'); // welcome screen
+      const app = document.getElementById('app');           // main app container
+
+      // Audio elements for background and cues (cue elements currently unused)
+      const ambient = document.getElementById('ambient');
+      const cueInhale = document.getElementById('cueInhale');
+      const cueHold = document.getElementById('cueHold');
+      const cueExhale = document.getElementById('cueExhale');
+
+      // When Begin button is clicked:
+      // - play ambient sound at low volume
+      // - fade out welcome screen and fade in main app UI
+      document.getElementById('beginButton').addEventListener('click', () => {
+        ambient.volume = 0.2;
+        ambient.play();
+        welcome.style.animation = "fadeOut 1s ease forwards";
+        setTimeout(() => {
+          welcome.style.display = "none";
+          app.style.display = "flex";
+          app.style.animation = "fadeIn 1.5s ease forwards";
+        }, 1000);
+      });
+
+      // Start button event: initialize inhale/hold/exhale durations and start breathe cycle
+      document.getElementById('startButton').addEventListener('click', () => {
+        if (isRunning) return; // prevent starting if already running
+
+        // Get values from inputs and convert seconds to milliseconds
+        inhale = parseInt(document.getElementById('inhaleTime').value) * 1000;
+        hold = parseInt(document.getElementById('holdTime').value) * 1000;
+        exhale = parseInt(document.getElementById('exhaleTime').value) * 1000;
+
+        isRunning = true;
+
+        // Start the first breathe cycle immediately
+        breatheCycle();
+        // Set interval to repeat the full breathe cycle continuously
+        interval = setInterval(breatheCycle, inhale + hold + exhale);
+      });
+
+      // Stop button event: stops the breathing session and resets UI
+      document.getElementById('stopButton').addEventListener('click', () => {
+        clearInterval(interval);    // clear the repeating interval
+        isRunning = false;          // mark as stopped
+        status.textContent = "Session Stopped"; // update status message
+        circle.style.transform = "scale(1)";    // reset circle size
+      });
+
+      // Function to run one full breathing cycle:
+      // 1) Inhale: grow circle, update status
+      // 2) Hold: keep circle size, update status
+      // 3) Exhale: shrink circle, update status
+      function breatheCycle() {
+        status.textContent = "Inhale...";
+        circle.style.transform = "scale(2)"; // grow circle
+
+        setTimeout(() => {
+          status.textContent = "Hold...";
+
+          setTimeout(() => {
+            status.textContent = "Exhale...";
+            circle.style.transform = "scale(1)"; // shrink circle back to normal
+          }, hold);
+        }, inhale);
+      }
+
+    });
+  </script>
+</body>
+</html>

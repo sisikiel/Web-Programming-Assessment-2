@@ -1,0 +1,439 @@
+/* Import serif font 'Crimson Text' from Google Fonts for elegant typography */
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap');
+
+/* Reset default margin and padding, set font and basic colors for html and body */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: sans-serif; /* fallback font */
+    color: #333;
+    overflow-x: hidden;      /* Prevent horizontal scroll */
+    font-family: 'Crimson Text', serif; /* Use imported serif font */
+}
+
+/* Hide scrollbar for WebKit browsers */
+body::-webkit-scrollbar {
+  display: none;
+}
+
+
+/* Fullscreen fixed background with cover and no repeat */
+.background-container {
+    position: fixed;      /* Stay fixed on viewport */
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: url('bg2.jpg') no-repeat center center fixed; /* Fixed background image */
+    background-size: cover; /* Cover entire area */
+    z-index: -1;          /* Behind all other content */
+}
+
+/* Glassmorphism effect wrapper for main content */
+.glass-wrapper {
+    max-width: 1300px;           /* Max width for readability */
+    margin: 100px auto 80px;     /* Centered with vertical spacing */
+    padding: 30px 20px;
+    background: rgba(255, 255, 255, 0.3);  /* Semi-transparent white */
+    backdrop-filter: blur(10px);           /* Blur behind */
+    -webkit-backdrop-filter: blur(10px);   /* Safari support */
+    border-radius: 20px;                   /* Rounded corners */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2); /* Subtle shadow */
+}
+
+/* Sticky header to keep navigation visible on scroll */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 10;                   /* Stay on top */
+  background: white;             /* White background for clarity */
+  display: flex;
+  justify-content: center;       /* Center nav horizontally */
+  padding: 1rem 0;               /* Vertical padding */
+}
+
+/* Navigation bar container: flexbox centering */
+.navbar {
+  display: flex;
+  justify-content: center;
+}
+
+/* Pill-shaped container for nav links with border and background */
+.nav-pill {
+  padding: 20px 30px;
+  border: 1px solid #850e35;          /* Dark red border */
+  border-radius: 999px;                /* Fully rounded (pill shape) */
+  background: rgba(255, 255, 255, 0.9); /* Slightly transparent white */
+}
+
+/* Remove list default styles and display nav links horizontally */
+nav ul {
+  list-style: none;     /* Remove bullets */
+  display: flex;
+  gap: 15px;            /* Space between nav items */
+  margin: 0;
+  padding: 0;
+  font-weight: bold;
+}
+
+/* Style individual nav links */
+nav ul a {
+  text-decoration: none;            /* Remove underline */
+  padding: 10px 15px;               /* Clickable area */
+  color: #850e35;                   /* Dark red text */
+  border-radius: 5px;               /* Slight rounding */
+  transition: background-color 0.3s, color 0.3s; /* Smooth hover effect */
+}
+
+/* Hover effect on nav links for better interactivity */
+nav ul a:hover {
+  background-color: rgb(255, 196, 196); /* Light pink background */
+  color: black;                         /* Dark text */
+  border-radius: 999px;                 /* Pill shape on hover */
+}
+
+/* Active nav link style override */
+nav ul a.active {
+  background: none !important;        /* Remove background */
+  color: #850e35 !important;          /* Dark red text */
+}
+
+/* Main page title container styling */
+.container1 {
+    text-align: center;                /* Center text */
+    font-size: 120%;                  /* Slightly larger text */
+    padding: 20px 0;
+    color: #850e35;                   /* Dark red color */
+    text-shadow: 1px 1px 2px rgba(255,255,255,0.8); /* Soft white shadow for contrast */
+}
+
+/* Individual content boxes with white background and rounded corners */
+.box {
+  width: 350px;
+  background-color: white;
+  border-radius: 12px;                /* Rounded corners */
+  overflow: hidden;                  /* Clip overflow */
+  transition: all 0.3s ease;         /* Smooth animations */
+  position: relative;                /* For absolute children */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+/* Expand box width on hover for emphasis */
+.box:hover {
+  width: 500px;
+}
+
+/* Images inside boxes centered and responsive */
+.box img {
+  width: 300px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  object-fit: cover;                 /* Maintain aspect ratio */
+  transition: transform 0.3s ease;  /* Smooth zoom */
+}
+
+/* Zoom in image slightly on box hover */
+.box:hover img {
+  transform: scale(1.1);
+}
+
+/* Info text initially hidden inside box */
+.info {
+  padding: 15px;
+  opacity: 0;                      /* Invisible */
+  max-height: 0;                   /* Collapsed */
+  overflow: hidden;
+  transition: opacity 0.3s ease, max-height 0.3s ease; /* Smooth reveal */
+  text-align: center;
+}
+
+/* Reveal info text on box hover */
+.box:hover .info {
+  opacity: 1;
+  max-height: 200px;               /* Expand max height */
+}
+
+/* Title overlay at bottom of box */
+.title {
+  position: absolute;
+  bottom: 8px;                    /* Default vertical position */
+  left: 12px;
+  font-size: 1.2em;
+  font-weight: bold;
+  padding: 0 5px;
+  transition: padding 0.3s ease, bottom 0.3s ease; /* Animate padding and position */
+  color: #850e35;                 /* Dark red text */
+  background-color: rgba(204, 198, 198, 0.5); /* Semi-transparent gray background */
+  border-radius: 10px;
+}
+
+/* Change title styling and position on box hover */
+.box:hover .title {
+  padding: 0 20px;                /* Wider padding */
+  bottom: 40px;                  /* Move title higher */
+  color: rgb(255, 196, 196);     /* Light pink text */
+  background-color: rgba(0,0,0,0.7); /* Dark semi-transparent background */
+}
+
+/* Container for images inside box - controls height and clipping */
+.image-container {
+      position: relative;
+      overflow: hidden;
+      height: 200px;
+      transition: height 0.3s ease; /* Smooth height changes */
+      background-color: #ffffff;
+}
+
+/* Paragraph styling inside info container */
+.info p {
+  margin: 0;
+  padding: 0 5px;
+  transition: padding 0.3s ease, margin 0.3s ease; /* Smooth spacing changes */
+  text-align: justify; /* Justify text for neat blocks */
+  justify-content: center;
+}
+
+/* Increase paragraph padding and margin on hover for readability */
+.box:hover .info p {
+  padding: 0 20px;
+  margin-bottom: 1em;
+}
+
+/* Another container for layout (if used), flex wrap for responsiveness */
+.container2 {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-top: 5%;
+}
+
+/* Styled link button with adjusted smaller size */
+.link-button {
+  margin-top: 1rem;
+  padding: 0.45rem 0.9rem;
+  background-color: #850e35;   /* Dark red background */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-family: 'Crimson Text', serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  text-decoration: none;
+  text-align: center;
+  min-width: 160px;
+  display: inline-block;
+  box-shadow: 0 3px 8px rgba(133, 14, 53, 0.25);
+}
+
+.link-button:hover {
+  background-color: #b34b5b;
+  box-shadow: 0 5px 15px rgba(179, 75, 91, 0.4);
+}
+
+/* Container for multiple boxes - flex layout and wrap */
+.container {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;              /* Wrap to new line */
+  justify-content: center;      /* Center children */
+  padding-top: 5%;
+}
+
+/* Style links inside boxes to center content */
+.box a {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;             /* Spacing above */
+  text-decoration: none;
+}
+
+/* Button styles with smaller size consistent with link-buttons */
+button {
+  margin-top: 1rem;
+  background-color: #850e35;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-family: 'Crimson Text', serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  text-decoration: none;
+  text-align: center;
+  display: inline-block;
+  padding: 0.45rem 0.9rem;
+  min-width: 160px;
+  box-shadow: 0 3px 8px rgba(133, 14, 53, 0.25);
+}
+
+button:hover {
+  background-color: #b34b5b;
+  box-shadow: 0 5px 15px rgba(179, 75, 91, 0.4);
+}
+
+/* Media navigation bar with blur and light background */
+.media-nav {
+    background: rgba(255, 255, 255, 0.7); /* Semi-transparent */
+    backdrop-filter: blur(10px);
+    padding: 15px 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-top: 30px;
+}
+
+/* Container for media nav links with spacing */
+.media-nav-container {
+    display: flex;
+    justify-content: center;
+    gap: 50px;                 /* Space between nav items */
+}
+
+/* Style media nav links */
+.media-nav-container a {
+    color: rgb(140, 60, 60);   /* Brownish red text */
+    text-decoration: none;
+    font-size: 18px;
+    padding: 10px 20px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+/* Hover effect for media nav links */
+.media-nav-container a:hover {
+    background-color: rgba(0, 0, 0, 0.05); /* Light gray background */
+    color: black;
+}
+
+.media-nav-container a.active {
+  background-color: #fbe9eb;
+  color: #b34b5b;
+  font-weight: bold;
+}
+
+
+/* Container for dynamic media content with padding */
+.media-content {
+    padding: 40px 20px;
+}
+
+/* Bottom section container for articles, case studies, and videos */
+.bottom-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  padding: 50px 20px;
+  max-width: 1300px;
+  margin: 0 auto 80px auto;
+}
+
+/* Individual content boxes for bottom section */
+.bottom-box {
+  background: rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  width: 320px;
+  padding-bottom: 90px;
+  transition: transform 0.4s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Hover effect to lift and highlight */
+.bottom-box:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Image container inside bottom box */
+.bottom-box .image-container {
+  height: 180px;
+  overflow: hidden;
+  background-color: #fff;
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.bottom-box:hover .image-container img {
+  transform: scale(1.1);
+}
+
+/* Images in bottom box */
+.bottom-box .image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+/* Content inside bottom box */
+.bottom-box .content {
+  padding: 20px 15px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Keep button at bottom */
+}
+
+/* Titles in bottom box*/
+.bottom-box .content .title {
+  font-size: 1.1em; 
+  font-weight: 700;
+  color: #850e35;
+  margin-bottom: 18px; 
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+}
+
+/* Descriptions in bottom box */
+.bottom-box .content p {
+  font-size: 1em;
+  color: #333;
+  text-align: justify;
+  flex-grow: 1;
+  margin-bottom: 20px;
+}
+
+/* Action buttons or links */
+.bottom-box .content a,
+.bottom-box .content button {
+  align-self: center;
+  margin-top: auto; /* Push button down */
+  background-color: #850e35;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-family: 'Crimson Text', serif;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  width: 150px;
+  text-align: center;
+}
+
+.bottom-box .content a:hover,
+.bottom-box .content button:hover {
+  background-color: rgb(255, 196, 196);
+  color: black;
+}
+
+.title2 {
+  position: absolute;
+  bottom: 8px;                    /* Default vertical position */
+  left: 12px;
+  font-size: 1.2em;
+  font-weight: bold;
+  padding: 0 5px;
+  transition: padding 0.3s ease, bottom 0.3s ease; /* Animate padding and position */
+  color: #850e35;                 /* Dark red text */
+  border-radius: 10px;
+}

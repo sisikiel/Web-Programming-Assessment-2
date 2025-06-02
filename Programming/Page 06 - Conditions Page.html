@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Conditions</title>
+    <!-- Link to external CSS stylesheet -->
+    <link rel="stylesheet" href="Page06.css"/>
+  </head>
+
+  <body>
+    <!-- Site header with navigation bar -->
+    <header>
+      <nav class="navbar">
+        <div class="nav-pill">
+          <ul>
+            <!-- Navigation links to different pages -->
+            <li><a href="Page 01 - Home Page.html">Home</a></li>
+            <li><a href="Page 02 - Anatomy Page.html">Anatomy</a></li>
+            <li><a href="Page 03 - Functions Page.html">Functions</a></li>
+            <li><a href="Page 04 - Health Page.html">Health Tips</a></li>
+            <li><a href="Page 05 - Resources Page.html">Resources</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+
+    
+    <!-- Lung Health Myths vs Facts Section -->
+    <section class="myths-facts" aria-label="Lung Health Myths versus Facts">
+      <h2>Lung Health Myths vs Facts</h2>
+      <div class="myth-fact-pair">
+        <div class="myth">
+          <p><strong>Myth:</strong> Smoking only harms the lungs of heavy smokers.</p>
+        </div>
+        <div class="fact">
+          <p><strong>Fact:</strong> Even occasional smoking damages lung tissue and affects lung function.</p>
+        </div>
+      </div>
+      <div class="myth-fact-pair">
+        <div class="myth">
+          <p><strong>Myth:</strong> Asthma is just a minor inconvenience and doesn’t require treatment.</p>
+        </div>
+        <div class="fact">
+          <p><strong>Fact:</strong> Asthma can be serious and should be properly managed with medical advice.</p>
+        </div>
+      </div>
+      <div class="myth-fact-pair">
+        <div class="myth">
+          <p><strong>Myth:</strong> Only older adults get lung diseases.</p>
+        </div>
+        <div class="fact">
+          <p><strong>Fact:</strong> Lung conditions can affect people of all ages, including children.</p>
+        </div>
+      </div>
+    </section>
+
+    <main>
+      <h1>Common Lung Conditions You Should Know</h1>
+      <div class="highlight-box">
+        <p><span class="icon">💡</span>Protecting your lungs is vital for long-term health. Learn about these conditions and how to recognize them early.</p>
+      </div>
+
+      <section>
+        <div class="accordion-container">
+          <div class="accordion-button">
+            Asthma
+          </div>
+          <div class="accordion-content">
+            <div class="condition">
+              <p>Asthma causes inflammation and narrowing of airways. Common symptoms include wheezing, coughing, and breathlessness—especially after physical activity or exposure to allergens.</p>
+            </div>
+            <img src="Page 6 Contents/1 - Asthma.jpg" alt="Asthma Illustration" class="condition-image">
+          </div>
+
+          <div class="accordion-button">
+            Chronic Obstructive Pulmonary Disease (COPD)
+          </div>
+          <div class="accordion-content">
+            <div class="condition">
+              <p>COPD includes conditions like chronic bronchitis and emphysema. It leads to difficulty breathing, persistent cough, and frequent respiratory infections.</p>
+            </div>
+            <img src="Page 6 Contents/2 - COPD.jpg" alt="COPD Illustration" class="condition-image">
+          </div>
+
+          <div class="accordion-button">
+            Pneumonia
+          </div>
+          <div class="accordion-content">
+            <div class="condition">
+              <p>Pneumonia is an infection that inflames the air sacs and may cause them to fill with fluid. Symptoms include sharp chest pain, high fever, and deep cough.</p>
+            </div>
+            <img src="Page 6 Contents/3 - Pneumonia.jpg" alt="Pneumonia Illustration" class="condition-image">
+          </div>
+
+          <div class="accordion-button">
+            Lung Cancer
+          </div>
+          <div class="accordion-content">
+            <div class="condition">
+              <p>Lung cancer can develop in any part of the lungs and is often linked to smoking. Symptoms are a chronic cough, coughing up blood, and unexplained weight loss.</p>
+            </div>
+            <img src="Page 6 Contents/4 - Lung Cancer.jpg" alt="Lung Cancer Illustration" class="condition-image">
+          </div>
+
+          <div class="accordion-button">
+            Pulmonary Fibrosis
+          </div>
+          <div class="accordion-content">
+            <div class="condition">
+              <p>This condition involves progressive scarring of lung tissue, leading to increasing difficulty in breathing. Causes may include environmental factors and autoimmune diseases.</p>
+            </div>
+            <img src="Page 6 Contents/5 - Pulmonary Fibrosis.jpg" alt="Pulmonary Fibrosis Illustration" class="condition-image">
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Lung Condition Symptom Checker Section -->
+    <section class="symptom-checker" aria-label="Lung Condition Symptom Checker">
+      <h2>🩺 Lung Condition Symptom Checker</h2>
+      <form id="symptom-form">
+        <div class="symptom-list">
+          <div class="symptom-item">
+            <input type="checkbox" id="cough" name="symptom" value="cough" />
+            <label for="cough">Persistent Cough</label>
+          </div>
+          <div class="symptom-item">
+            <input type="checkbox" id="wheezing" name="symptom" value="wheezing" />
+            <label for="wheezing">Wheezing</label>
+          </div>
+          <div class="symptom-item">
+            <input type="checkbox" id="shortness" name="symptom" value="shortness" />
+            <label for="shortness">Shortness of Breath</label>
+          </div>
+          <div class="symptom-item">
+            <input type="checkbox" id="chestpain" name="symptom" value="chestpain" />
+            <label for="chestpain">Chest Pain</label>
+          </div>
+          <div class="symptom-item">
+            <input type="checkbox" id="fatigue" name="symptom" value="fatigue" />
+            <label for="fatigue">Fatigue</label>
+          </div>
+          <div class="symptom-item">
+            <input type="checkbox" id="fever" name="symptom" value="fever" />
+            <label for="fever">Fever</label>
+          </div>
+          <div class="symptom-item">
+            <input type="checkbox" id="weightloss" name="symptom" value="weightloss" />
+            <label for="weightloss">Unexplained Weight Loss</label>
+          </div>
+        </div>
+        <button type="button" id="check-btn">Check Possible Conditions</button>
+      </form>
+      <div class="result-box" id="result" aria-live="polite"></div>
+    </section>
+
+    <script>
+      // Accordion behavior
+      document.querySelectorAll('.accordion-button').forEach(button => {
+        button.addEventListener('click', () => {
+          const content = button.nextElementSibling;
+          const isOpen = content.style.display === 'block';
+          document.querySelectorAll('.accordion-content').forEach(c => c.style.display = 'none');
+          content.style.display = isOpen ? 'none' : 'block';
+        });
+      });
+
+      // Symptom Checker Logic
+      const symptomMap = {
+        asthma: ['wheezing', 'shortness', 'cough'],
+        copd: ['cough', 'shortness', 'fatigue'],
+        pneumonia: ['fever', 'cough', 'chestpain', 'fatigue'],
+        lungCancer: ['cough', 'weightloss', 'chestpain'],
+        pulmonaryFibrosis: ['shortness', 'fatigue', 'cough']
+      };
+
+      const symptomNames = {
+        asthma: 'Asthma',
+        copd: 'Chronic Obstructive Pulmonary Disease (COPD)',
+        pneumonia: 'Pneumonia',
+        lungCancer: 'Lung Cancer',
+        pulmonaryFibrosis: 'Pulmonary Fibrosis'
+      };
+
+      document.getElementById('check-btn').addEventListener('click', () => {
+        const checkedSymptoms = Array.from(document.querySelectorAll('input[name="symptom"]:checked')).map(input => input.value);
+        const resultDiv = document.getElementById('result');
+
+        if (checkedSymptoms.length === 0) {
+          resultDiv.textContent = 'Please select at least one symptom.';
+          return;
+        }
+
+        const possibleConditions = [];
+
+        for (const [condition, symptoms] of Object.entries(symptomMap)) {
+          // Count how many symptoms for condition match checked symptoms
+          const matches = symptoms.filter(s => checkedSymptoms.includes(s)).length;
+          // For this basic checker, require at least 2 matching symptoms
+          if (matches >= 2) {
+            possibleConditions.push(symptomNames[condition]);
+          }
+        }
+
+        if (possibleConditions.length === 0) {
+          resultDiv.textContent = "No matching lung conditions found with the selected symptoms. Please consult a healthcare professional for proper diagnosis.";
+        } else {
+          resultDiv.innerHTML = `<strong>Possible Conditions:</strong> <ul>${possibleConditions.map(c => `<li>${c}</li>`).join('')}</ul><p><em>Note: This is an informational tool only and does not replace professional medical advice.</em></p>`;
+        }
+      });
+    </script>
+  </body>
+</html>

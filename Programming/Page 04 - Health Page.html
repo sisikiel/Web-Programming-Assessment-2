@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Health Tips</title>
+    <!-- Link to external CSS stylesheet -->
+    <link rel="stylesheet" href="Page04.css"/>
+  </head>
+
+  <body>
+    <!-- Site header with navigation bar -->
+    <header>
+      <nav class="navbar">
+        <div class="nav-pill">
+          <ul>
+            <!-- Navigation links to different pages -->
+            <li><a href="Page 01 - Home Page.html">Home</a></li>
+            <li><a href="Page 02 - Anatomy Page.html">Anatomy</a></li>
+            <li><a href="Page 03 - Functions Page.html">Functions</a></li>
+            <li><a href="Page 04 - Health Page.html">Health Tips</a></li>
+            <li><a href="Page 05 - Resources Page.html">Resources</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <!-- First content section: Intro with text and animated image -->
+    <section class="page">
+      <div class="split-container">
+        <div class="info-side">
+          <h1>Keep your lungs healthy</h1>
+          <p>
+            Millions struggle to maintain healthy lungs due to pollution,
+            smoking, and poor habits. Scroll down for tips to take care of
+            yours!
+          </p>
+        </div>
+        <div class="image-side">
+          <!-- Animated GIF illustrating the world -->
+          <img src="Page 4 Contents/world.gif" alt="World animation" class="gif-image"/>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section where lung health tips will be dynamically inserted -->
+    <section class="page">
+      <div class="anatomy-container">
+        <div class="info-section" id="info-section"></div>
+      </div>
+    </section>
+
+    <!-- Section with breathing help info and call to action -->
+    <section class="page">
+      <div class="split-containers">
+        <div class="text-section">
+          <h1>Having Trouble With Breathing?</h1>
+          <p>
+            In PulmoSphere, not only you get to learn more about how your lung works, you can also learn how to conduct certain breathing exercises to increase your lung health.
+          </p>
+          <div class="link-boxes">
+            <!-- Link to breathing exercises page -->
+            <a href="Page 07 - Breathe With Us.html" class="link-button">Breathe With Us.</a>
+          </div>
+        </div>
+
+        <div class="image-side">
+          <!-- Breathing GIF to complement text -->
+          <img src="Page 4 Contents/breathing.gif" alt="Breathing GIF" class="gif-image" />
+        </div>
+      </div>
+    </section>
+
+    <!-- JavaScript to dynamically load and display lung health tips -->
+    <script>
+      // Array of health tips with title, text, and image
+      const infoContent = [
+        {
+          title: "Avoid Smoking",
+          text: "Avoid smoking whenever possible, as it remains the primary cause of chronic lung conditions such as COPD (chronic obstructive pulmonary disease) and lung cancer—responsible for nearly 90% of lung cancer deaths. Even exposure to secondhand smoke can increase the risk of respiratory infections and asthma flare-ups, especially in children and older adults.",
+          image: "Page 4 Contents/2 - Avoid Smoking.png"
+        },
+        {
+          title: "Exercise Regularly",
+          text: "Engaging in regular physical activity, such as brisk walking, swimming, or cycling, helps increase lung capacity, improves circulation, and supports cardiovascular health. Aerobic exercise, in particular, encourages your lungs to work more efficiently over time, and studies show that just 30 minutes of moderate exercise five days a week can reduce your risk of chronic disease.",
+          image: "Page 4 Contents/3 - Exercise.gif"
+        },
+        {
+          title: "Avoid Air Pollution",
+          text: "Keep track of local air quality indexes—especially if you live in urban or industrial regions—since high levels of air pollution, like particulate matter (PM2.5), ozone, and nitrogen dioxide, can trigger respiratory symptoms and worsen existing conditions such as asthma. On days when air quality is poor, it's safer to stay indoors, use air purifiers if available, and avoid heavy outdoor exertion.",
+          image: "Page 4 Contents/4 - Pollution.gif"
+        },
+        {
+          title: "Have a healthy diet",
+          text: "A balanced diet rich in antioxidants, vitamins, and omega-3 fatty acids can support lung function and reduce inflammation. Foods like leafy greens, berries, fatty fish, and nuts are not only good for your lungs but can also help protect against chronic illnesses. Some studies have even linked high-fiber diets to better lung health and lower risks of respiratory disease.",
+          image: "Page 4 Contents/5 - Diet.gif"
+        },
+        {
+          title: "Drink Water",
+          text: "Drinking plenty of water throughout the day helps maintain the thin, flowing consistency of mucous, which allows your respiratory system to trap and expel irritants like dust, bacteria, and allergens more effectively. Dehydration, on the other hand, can lead to thicker secretions, making breathing more difficult—especially for individuals with conditions like bronchitis or asthma.",
+          image: "Page 4 Contents/6 - Drinking.gif"
+        },
+      ];
+
+      // Track current tip index for navigation
+      let currentTipIndex = 0;
+
+      // Function to update displayed tip content based on index
+      function showInfo(index) {
+        currentTipIndex = index;
+        const section = document.getElementById("info-section");
+        const info = infoContent[index];
+
+        // Insert the tip title, text, image, and navigation circles into the info-section div
+        section.innerHTML = `
+          <h1>${info.title}</h1>
+          <p>${info.text}</p>
+          ${info.image ? `<img src="${info.image}" alt="${info.title}" class="gif-image"/>` : ''}
+          <div class="circle-nav">
+            ${infoContent.map((_, i) => `
+              <div class="circle ${index === i ? 'active' : ''}" onclick="showInfo(${i})">${i + 1}</div>
+            `).join('')}
+          </div>
+        `;
+      }
+
+      // Initialize page by showing the first tip on window load
+      window.onload = () => {
+        showInfo(0);
+      };
+    </script>
+  </body>
+</html>

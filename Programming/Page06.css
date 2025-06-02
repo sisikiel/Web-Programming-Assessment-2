@@ -1,0 +1,332 @@
+/* Import serif font 'Crimson Text' from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap');
+
+/* Base styles for html and body */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 150%; /* Extra height for scrolling effects */
+    font-family: 'Crimson Text', serif;
+    color: #333;
+    overflow-x: hidden; /* Prevent horizontal scrollbar */
+    background: #ffffff;
+}
+
+/* Hide scrollbar in WebKit-based browsers (Safari, Chrome) */
+body::-webkit-scrollbar {
+  display: none;
+}
+
+/* Sticky header to keep nav visible on scroll */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 10; /* Ensure header stays above other content */
+  background: white;
+  display: flex;
+  justify-content: center;
+  padding: 1rem 0;
+}
+
+/* Center navbar items horizontally */
+.navbar {
+  display: flex;
+  justify-content: center;
+}
+
+/* Pill-shaped container style for nav links */
+.nav-pill {
+  padding: 20px 30px;
+  border: 1px solid #850e35;
+  border-radius: 999px; /* Full rounding for pill shape */
+  background: rgba(255, 255, 255, 0.9);
+}
+
+/* Remove default list styling and arrange nav items inline */
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 15px; /* Space between links */
+  margin: 0;
+  padding: 0;
+  font-weight: bold;
+}
+
+/* Style individual nav links */
+nav ul a {
+  text-decoration: none;
+  padding: 10px 15px; /* Expand clickable area */
+  color: #850e35;
+  border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Hover effect for nav links: color and pill shape */
+nav ul a:hover {
+  background-color: rgb(255, 196, 196);
+  color: black;
+  border-radius: 999px;
+}
+
+/* Style for the currently active nav link */
+nav ul a.active {
+  background: none !important;
+  color: #850e35 !important;
+}
+
+/* Main content container with max width, centering, and subtle shadow */
+main {
+  padding: 2rem;
+  max-width: 1000px;
+  margin: auto;
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 1s ease-in;
+}
+
+/* Fade-in animation for main content */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Heading styles with brand color and centered text */
+h1, h2 {
+  color: #850e35;
+  text-align: center;
+}
+
+/* Paragraph line height for readability */
+p {
+  line-height: 1.6;
+}
+
+/* Myths & Facts section styling */
+.myths-facts {
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 1.5rem 2rem;
+  background: #ffffff;
+  border: solid #333 1px;
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(133, 14, 53, 0.15);
+}
+.myths-facts h2 {
+  margin-bottom: 1rem;
+}
+
+/* Flex container for myth/fact pairs spaced apart */
+.myth-fact-pair {
+  display: flex;
+  justify-content: space-between;
+  background: white;
+  border-radius: 10px;
+  padding: 1rem 1.5rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+    border: solid #333 1px;
+}
+
+/* Myth and fact blocks share flex space */
+.myth, .fact {
+  flex: 1;
+  padding: 0 1rem;
+}
+
+/* Different colors to visually separate myths and facts */
+.myth {
+  color: #b33a59;
+  font-weight: 600;
+}
+.fact {
+  color: #3a6b59;
+  font-weight: 600;
+}
+
+/* Paragraph spacing inside myth/fact pairs */
+.myth-fact-pair p {
+  margin: 0.25rem 0;
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+/* Symptom Checker section */
+.symptom-checker {
+  max-width: 1000px;
+  margin: 3rem auto 5rem auto;
+  padding: 2rem;
+  background: #fff7f9;
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(133, 14, 53, 0.1);
+}
+.symptom-checker h2 {
+  margin-bottom: 1rem;
+}
+
+/* Flex wrap symptom list with spacing and center alignment */
+.symptom-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+/* Individual symptom selectable item styling */
+.symptom-item {
+  flex: 1 1 200px; /* Flexible width, min 200px */
+  background: white;
+  border: 1.5px solid #850e35;
+  border-radius: 10px;
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.3s, color 0.3s;
+  display: flex;
+  align-items: center;
+}
+
+/* Larger checkbox for easier interaction */
+.symptom-item input[type="checkbox"] {
+  margin-right: 0.75rem;
+  transform: scale(1.2);
+  cursor: pointer;
+}
+
+/* Hover effect for symptom items */
+.symptom-item:hover {
+  background-color: #a11a48;
+  color: white;
+  border-color: #a11a48;
+}
+
+/* Bold label text when checkbox checked */
+.symptom-item input[type="checkbox"]:checked + label {
+  font-weight: bold;
+}
+
+/* Submit button with pill shape and shadow */
+button#check-btn {
+  background-color: #850e35;
+  color: white;
+  border: none;
+  border-radius: 999px;
+  padding: 0.75rem 2rem;
+  font-size: 1.1rem;
+  cursor: pointer;
+  display: block;
+  margin: 0 auto;
+  box-shadow: 0 4px 12px rgba(133, 14, 53, 0.3);
+  transition: background-color 0.3s;
+}
+button#check-btn:hover {
+  background-color: #a11a48;
+}
+
+/* Result box styling for displaying output */
+.result-box {
+  margin-top: 1.5rem;
+  padding: 1rem 1.5rem;
+  background: white;
+  border: 1.5px solid #850e35;
+  border-radius: 15px;
+  min-height: 60px;
+  font-size: 1rem;
+  color: #333;
+}
+
+/* Accordion button styles */
+.accordion-button {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background-color: #850e35;
+  color: white;
+  padding: 1rem 1.5rem;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  margin: 1rem 0;
+  width: 95%;
+  text-align: left;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  position: relative;
+  cursor: pointer;
+}
+
+/* Images inside accordion buttons */
+.accordion-button img {
+  width: 110px;
+  height: 110px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+/* Hover effect on accordion buttons */
+.accordion-button:hover {
+  background-color: #a11a48;
+}
+
+/* Container for accordion content */
+.accordion-container {
+  position: relative;
+}
+
+/* Accordion content hidden by default, animates open on hover */
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.6s ease, padding 0.4s ease, opacity 0.6s ease;
+  opacity: 0;
+  padding: 0 1rem;
+  background-color: #fff7f9;
+  border-left: 4px solid #850e35;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+/* Show accordion content when button is hovered */
+.accordion-button:hover + .accordion-content {
+  max-height: 500px;
+  padding: 1rem;
+  opacity: 1;
+}
+
+/* Condition text container */
+.condition {
+  flex: 1;
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  background: #ffffff;
+  border-radius: 4px;
+}
+
+/* Condition image styling */
+.condition-image {
+  flex-shrink: 0;
+  width: 290px;
+  height: 290px;
+  object-fit: cover;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+/* Highlight box for important notes */
+.highlight-box {
+  background-color: #ffe9ec;
+  padding: 1rem;
+  border-left: 6px solid #850e35;
+  border-radius: 4px;
+  margin-top: 1rem;
+}
+
+/* Icon styling for inline icons */
+.icon {
+  margin-right: 0.5rem;
+  font-weight: bold;
+  color: #850e35;
+}

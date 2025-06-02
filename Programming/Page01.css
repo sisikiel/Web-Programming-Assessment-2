@@ -1,0 +1,339 @@
+/* Font Settings */
+/* Loading 'Crimson Text' font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap');
+
+/* Font Style Classes */
+/* Normal weight and style */
+.normal {
+    font-weight: 400;
+    font-style: normal;
+}
+
+/* Bold text */
+.bold {
+    font-weight: 700;
+}
+
+/* Italic text */
+.italic {
+    font-style: italic;
+}
+
+/* Bold and italic combined */
+.bold-italic {
+    font-weight: 700;
+    font-style: italic;
+}
+
+/* Global font and layout reset */
+body, html {
+    font-family: 'Crimson Text', serif; /* Apply custom font */
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+/* Hide scrollbar in Webkit browsers */
+body::-webkit-scrollbar {
+      display: none;
+}
+
+/* Background video settings */
+/* Fixed full-screen video behind content */
+.video-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Cover entire viewport */
+    z-index: -1; /* Behind other content */
+}
+
+/* The Navigation Bar */
+/* Sticky header stays at top when scrolling */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 10; /* Above other elements */
+}
+
+/* Navbar container using flexbox centered horizontally */
+.navbar {
+    display: flex;
+    justify-content: center;
+    padding: 2%;
+}
+
+/* Navigation pill style with rounded edges and translucent background */
+.nav-pill {
+    padding: 20px 30px;
+    border: 1px solid #850e35;
+    border-radius: 999px; /* Fully rounded for pill shape */
+    background: rgba(255, 255, 255, 0.2); /* Semi-transparent */
+}
+
+/* Navigation list reset and horizontal flex layout with spacing */
+nav ul {
+    list-style-type: none; /* Remove bullets */
+    display: flex;
+    gap: 15px;
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+}
+
+/* Navigation links default style */
+nav ul a {
+    text-decoration: none;
+    padding: 10px 15px;
+    color: rgb(133, 14, 53);
+    border-radius: 5px; /* Slight rounding */
+}
+
+/* Hover effect for navigation links */
+nav ul a:hover {
+    background-color: rgb(255, 196, 196);
+    border-radius: 999px; /* Pill shape on hover */
+    color: black;
+}
+
+/* Main content section */
+/* Transparent white background with blur behind */
+.main {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px); /* Blur content behind */
+    padding: 50px;
+    border-radius: 10px;
+    color: rgb(133, 14, 53);
+    text-align: center;
+}
+
+/* Main Title container with vertical and horizontal centering */
+.title-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;   /* Vertical centering */
+    align-items: center;       /* Horizontal centering */
+    height: 100vh;
+    text-align: center;
+    font-weight: bold;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5); /* Soft shadow for readability */
+    line-height: 1.2;
+    color: rgb(133, 14, 53);
+}
+
+/* Reduce vertical spacing between direct children of title container */
+.title-container > * {
+    margin: 0.3em 0;
+}
+
+/* Large heading size for main title */
+.title-container h1 {
+    font-size: 2.6rem;
+}
+
+/* Text blocks with justified text and side margins */
+.text {
+    font-size: 20px;
+    margin-left: 20%;
+    margin-right: 20%;
+    text-align: justify;
+}
+
+/* Flex container for layout with wrapping and gaps */
+.layout {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+/* Side boxes container in vertical column with spacing and max width */
+.side-boxes {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    max-width: 250px;
+}
+
+/* Centered video with pulsing animation and rounded corners */
+.video-center video {
+    animation: pulse 3s infinite; /* Smooth scale animation */
+    border-radius: 15px;
+    height: auto;
+    object-fit: cover;
+    width: 300px;
+    z-index: 1;
+}
+
+/* Information box styling with light background and border */
+.info-box {
+    background: rgba(121, 111, 128, 0.1);
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    color: rgb(133, 14, 53);
+    padding: 1rem;
+    text-align: center;
+    text-decoration: none;
+    transition: transform 0.3s, background 0.3s; /* Smooth hover transitions */
+}
+
+/* Hover effect for info boxes: glowing shadow and slight scale up */
+.info-box:hover {
+    box-shadow: 0 0 20px 8px rgba(220, 129, 129, 0.3),
+                0 0 40px 16px rgba(236, 19, 62, 0.2),
+                0 0 60px 24px rgba(180, 80, 95, 0.1);
+    transform: scale(1.03);
+}
+
+/* News Section */
+/* Semi-transparent background with blur */
+.news-section {
+    background: rgba(128, 111, 111, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 60px 20px;
+}
+
+/* News layout with flex wrapping, spacing, and alignment */
+.news-layout {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4rem;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* News heading container with padding and alignment */
+.news-heading {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    min-width: 350px;
+    padding: 5%;
+    text-align: left;
+}
+
+/* News heading text style */
+.news-heading h2 {
+    color: rgb(133, 14, 53);
+    font-size: 2.5rem;
+}
+
+/* Vertical news cards container */
+.news-cards-vertical {
+    display: flex;
+    flex: 2;
+    flex-direction: column;
+    gap: 1.5rem;
+    min-width: 300px;
+    align-items: center;
+}
+
+/* Individual news card styling */
+.news-card {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    padding: 1.5rem;
+    width: 500px;
+    transition: transform 0.2s ease;
+}
+
+/* News card heading */
+.news-card h3 {
+    color: rgb(133, 14, 53);
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+}
+
+/* News card paragraph text */
+.news-card p {
+    color: #555;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+/* News card link style */
+.news-card a {
+    color: #ee6983;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+/* Hover effect for news cards: slight upward move */
+.news-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Footer Settings */
+/* Semi-transparent dark footer with blur */
+.site-footer {
+    background-color: rgba(35, 15, 15, 0.9);
+    backdrop-filter: blur(10px);
+    color: #ddd;
+    font-size: 0.9rem;
+    padding: 40px 20px 20px;
+}
+
+/* Footer content flex container with wrapping and spacing */
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: auto;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #333;
+}
+
+/* Footer section headings */
+.footer-section h4 {
+    color: #fff;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+}
+
+/* Footer lists reset */
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Footer list items spacing */
+.footer-section ul li {
+    margin-bottom: 0.5rem;
+}
+
+/* Footer links style and hover effect */
+.footer-section ul li a {
+    color: #bbb;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.footer-section ul li a:hover {
+    color: #fff;
+}
+
+/* Footer bottom text styling */
+.footer-bottom {
+    color: #888;
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* Animation Settings */
+/* Subtle scaling pulse animation */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+    100% { transform: scale(1); }
+}

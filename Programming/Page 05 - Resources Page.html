@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Resource Center</title>
+    <!-- Link to external CSS stylesheet -->
+    <link rel="stylesheet" href="Page05.css"/>
+  </head>
+
+  <body>
+    <!-- Site header with navigation bar -->
+    <header>
+      <nav class="navbar">
+        <div class="nav-pill">
+          <ul>
+            <!-- Navigation links to different pages -->
+            <li><a href="Page 01 - Home Page.html">Home</a></li>
+            <li><a href="Page 02 - Anatomy Page.html">Anatomy</a></li>
+            <li><a href="Page 03 - Functions Page.html">Functions</a></li>
+            <li><a href="Page 04 - Health Page.html">Health Tips</a></li>
+            <li><a href="Page 05 - Resources Page.html">Resources</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Page heading section -->
+    <div class="container1">
+      <h1>Resource Center</h1>
+      <h3>Learn about everything from countless stories</h3>
+    </div>
+
+    <!-- Static resource boxes with images, titles, descriptions, and external links -->
+    <div class="container">
+      <div class="box">
+        <div class="image-container">
+          <img src="Page 5 Contents/1 - Arthur Gillespie.png" alt="Image 1" />
+          <div class="title">Chicago Cop with Cancer in One Lung, COVID Damage in the Other Gets Successful Double Transplant</div>
+        </div>
+        <div class="info">
+          <p>A Chicago police captain has successfully had a double lung transplant after one lung was damaged by cancer — and the other was damaged by COVID.</p>
+          <div class="link-boxes">
+            <!-- External link opens in new tab -->
+            <a href="https://people.com/chicago-cop-cancer-covid-damage-double-lung-transplant-canning-thoracic-institute-8647395?" target="_blank" class="link-button">Read More.</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="box">
+        <div class="image-container">
+          <img src="Page 5 Contents/2 - World's First Robotic Lung.png" alt="Image 2" />
+          <div class="title">NY woman receives first fully robotic double lung transplant: ‘An unbelievable thing’</div>
+        </div>
+        <div class="info">
+          <p>Cheryl Mehrkar was an “adrenaline junkie” who relished being a scuba divemaster and riding her 2003 Harley-Davidson Sportster in North Carolina, Maine, and near her home in Dutchess County.</p>
+          <a href="https://nypost.com/2024/11/21/health/ny-woman-receives-first-fully-robotic-double-lung-transplant/" target="_blank" class="link-button">Read More.</a>
+        </div>
+      </div>
+
+      <div class="box">
+        <div class="image-container">
+          <img src="Page 5 Contents/3 - College Graduate Surviving Covid.jpg" alt="Image 3" />
+          <div class="title">College Grad Recovers from COVID-19, 4 Years After Double-Lung Transplant</div>
+        </div>
+        <div class="info">
+          <p>Miraculous recoveries are nothing new to Nick Hunter. In 2016, after a 13-year battle with cystic fibrosis, the then-college freshman underwent a lifesaving double-lung transplant at Cleveland Clinic. Having contracted COVID-19 and spending a week on a ventilator at Cleveland Clinic Akron General, Nick is once more showing amazing resilience.</p>
+          <a href="https://my.clevelandclinic.org/patient-stories/396-college-grad-recovers-from-covid-19-4-years-after-double-lung-transplant?" target="_blank" class="link-button">Read More.</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navigation tabs for different media sections -->
+    <div class="media-nav">
+      <div class="media-nav-container">
+        <a href="#articles" data-section="articles">Articles</a>
+        <a href="#case-studies" data-section="case-studies">Case Studies</a>
+        <a href="#videos" data-section="videos">Videos</a>
+      </div>
+    </div>
+
+    <!-- Container where dynamic media content is loaded -->
+    <div id="media-content" class="media-content"></div>
+
+<script>
+  // Reference to the container where dynamic media content will be displayed
+  const content = document.getElementById("media-content");
+
+  // Object mapping media section keys to their respective HTML content strings
+const contentMap = {
+  articles: `
+    <div class="bottom-section">
+      <div class="bottom-box">
+        <div class="image-container">
+          <img src="Page 5 Contents/Articles/Article 1.png" alt="Article 1">
+        </div>
+        <div class="content">
+          <div class="title2">Wildfire Smoke Exposure May Shorten Lung Cancer Survival – Reuters</div>
+          <a href="https://www.reuters.com/sustainability/climate-energy/wildfire-smoke-exposure-may-shorten-lung-cancer-survival-2025-05-31/" target="_blank" rel="noopener noreferrer">
+            Read
+          </a>
+        </div>
+      </div>
+      <div class="bottom-box">
+        <div class="image-container">
+          <img src="Page 5 Contents/Articles/Article 2.png" alt="Article 2">
+        </div>
+        <div class="content">
+          <div class="title2">Millions of Teens in Africa Undiagnosed with Asthma – The Guardian</div>
+          <a href="https://www.theguardian.com/global-development/2024/oct/21/millions-teenagers-africa-undiagnosed-asthma-urbanisation-adolescent-health-researchers-medication-tests?CMP=share_btn_url" target="_blank" rel="noopener noreferrer">
+            Read
+          </a>
+        </div>
+      </div>
+      <div class="bottom-box">
+        <div class="image-container">
+          <img src="Page 5 Contents/Articles/Article 3.jpg" alt="Article 3">
+        </div>
+        <div class="content">
+          <div class="title2">Double Lung Transplant Saves Mother of Twins</div>
+          <a href="https://www.usnews.com/news/health-news/articles/2025-05-12/double-lung-transplant-saves-mother-of-twins?" target="_blank" rel="noopener noreferrer">
+            Read
+          </a>
+        </div>
+      </div>
+    </div>
+  `,
+  "case-studies": `
+    <div class="bottom-section">
+      <div class="bottom-box">
+        <div class="image-container">
+          <img src="Page 5 Contents/Case Studies/1.jpg" alt="Case Study 1">
+        </div>
+        <div class="content">
+          <div class="title2">[In Press] Lung Transplant Success in Severe Diquat Poisoning: A Case Report</div>
+          <a href="https://amjcaserep.com/abstract/index/idArt/947421/s/B" target="_blank" rel="noopener noreferrer">
+            Learn More
+          </a>
+        </div>
+      </div>
+      <div class="bottom-box">
+        <div class="image-container">
+          <img src="Page 5 Contents/Case Studies/2.jpg" alt="Case Study 2">
+        </div>
+        <div class="content">
+          <div class="title2">A case report of human infection with avian influenza H10N3 with a complex respiratory disease history</div>
+          <a href="https://bmcinfectdis.biomedcentral.com/articles/10.1186/s12879-024-09830-y?" target="_blank" rel="noopener noreferrer">
+            Learn More
+          </a>
+        </div>
+      </div>
+      <div class="bottom-box">
+        <div class="image-container">
+          <img src="Page 5 Contents/Case Studies/3.gif" alt="Case Study 3">
+        </div>
+        <div class="content">
+          <div class="title2">The Breathing Struggle: A Case Study of Congenital Lung Malformation in a Young Child</div>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/39543566/" target="_blank" rel="noopener noreferrer">
+            Learn More
+          </a>
+        </div>
+      </div>
+    </div>
+  `,
+  videos: `
+    <div class="bottom-section">
+      <div class="bottom-box">
+        <div class="image-container">
+          <img src="Page 5 Contents/Videos/1.png" alt="Video 1">
+        </div>
+        <div class="content">
+          <div class="title2">Northwestern Medicine Leads United States in Lung Transplants by Combining Leading-Edge Technologies</div>
+          <a href="https://www.youtube.com/watch?v=6PHpJYFtdiM" target="_blank" rel="noopener noreferrer">
+            Watch Now!
+          </a>
+        </div>
+      </div>
+      <div class="bottom-box">
+        <div class="image-container">
+          <img src="Page 5 Contents/Videos/2.png" alt="Video 2">
+        </div>
+        <div class="content">
+          <div class="title2">Cerritos family grateful for double-lung transplant</div>
+          <a href="https://www.youtube.com/watch?v=fQtAIgTH8kM" target="_blank" rel="noopener noreferrer">
+            Watch Now!
+          </a>
+        </div>
+      </div>
+      <div class="bottom-box">
+        <div class="image-container">
+          <img src="Page 5 Contents/Videos/3.png" alt="Video 3">
+        </div>
+        <div class="content">
+          <div class="title2">Going Strong 25 Years After Double Lung Transplant | Duke Health</div>
+          <a href="https://www.youtube.com/watch?v=jRivbMime1s" target="_blank" rel="noopener noreferrer">
+            Watch Now!
+          </a>
+        </div>
+      </div>
+    </div>
+  `,
+};
+  /*@param {string} section - The key of the content section to load*/
+  function loadContent(section) {
+    content.innerHTML = contentMap[section] || "<p>No content found.</p>";
+  }
+
+// Add click event listeners to all media nav links
+const navLinks = document.querySelectorAll(".media-nav-container a");
+
+navLinks.forEach((link) => {
+  link.addEventListener("click", (e) => {
+    e.preventDefault(); // Prevent default anchor behavior
+
+    const section = link.dataset.section; // Get section from data attribute
+    loadContent(section); // Load corresponding content dynamically
+
+    // Remove 'active' class from all links
+    navLinks.forEach((nav) => nav.classList.remove("active"));
+
+    // Add 'active' class to clicked link
+    link.classList.add("active");
+  });
+});
+
+  // Load default content (Articles) once the DOM is fully loaded
+  window.addEventListener("DOMContentLoaded", () => {
+    loadContent("articles");
+  });
+</script>
+
+  </body>
+</html>
